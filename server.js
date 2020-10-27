@@ -13,14 +13,14 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/fitnesstracker",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  }
+const URI = process.env.MONGODB_URI || "mongodb://localhost/fitnesstracker"
+
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+}
 );
 
 // routes
